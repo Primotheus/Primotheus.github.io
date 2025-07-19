@@ -57,7 +57,17 @@ dots.forEach((dot, index) => {
 
 projects.forEach((project, index) => {
 	project.addEventListener('click', () => {
-		updateCarousel(index);
+		if (project.classList.contains('center')) {
+			// Retrieve project details
+			const title = project.querySelector('h3')?.textContent || 'No Title';
+			const description = project.querySelector('p')?.textContent || 'No Description';
+			const imageUrl = project.querySelector('img')?.src || '';
+			const projectUrl = `https://example.com/project${index + 1}`;
+			const githubUrl = `https://github.com/example/project${index + 1}`;
+			openModal(title, description, imageUrl, projectUrl, githubUrl);
+		} else {
+			updateCarousel(index);
+		}
 	});
 });
 
@@ -93,5 +103,50 @@ function handleSwipe() {
 		}
 	}
 }
+
+// Create modal elements
+const modal = document.createElement('div');
+modal.classList.add('modal');
+modal.innerHTML = `
+	<div class="modal-content">
+		<span class="close-button">&times;</span>
+		<img class="modal-image" src="" alt="Project Image">
+		<h3 class="modal-title"></h3>
+		<p class="modal-description"></p>
+		<a class="modal-project-link" href="#" target="_blank">View Project</a>
+		<a class="modal-github-link" href="#" target="_blank">View on GitHub</a>
+	</div>
+`;
+document.body.appendChild(modal);
+
+const closeButton = modal.querySelector('.close-button');
+const modalTitle = modal.querySelector('.modal-title');
+const modalDescription = modal.querySelector('.modal-description');
+const modalImage = modal.querySelector('.modal-image');
+const modalProjectLink = modal.querySelector('.modal-project-link');
+const modalGitHubLink = modal.querySelector('.modal-github-link');
+
+// Function to open modal
+function openModal(title, description, imageUrl, projectUrl, githubUrl) {
+	modalTitle.textContent = title;
+	modalDescription.textContent = description;
+	modalImage.src = imageUrl;
+	modalProjectLink.href = projectUrl;
+	modalGitHubLink.href = githubUrl;
+	modal.style.display = 'flex'; // Use flex to center the modal
+}
+
+// Function to close modal
+function closeModal() {
+	modal.style.display = 'none';
+}
+
+// Close modal on clicking the close button or outside the modal
+closeButton.addEventListener('click', closeModal);
+window.addEventListener('click', (e) => {
+	if (e.target === modal) {
+		closeModal();
+	}
+});
 
 updateCarousel(0);
