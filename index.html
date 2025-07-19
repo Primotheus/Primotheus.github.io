@@ -1,17 +1,133 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Portfolio Project</title>   
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <nav>
-            <a href="about.html">About</a>
-            <a href="projects.html">Project</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        <main>
-            <h1>My Portfolio</h1>
-        </main>
-    </body>
+
+<head>
+    <title>Portfolio Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav>
+        <a href="#About">About</a>
+        <a href="#Projects">Project</a>
+        <a href="#Contact">Contact</a>
+    </nav>
+    <main>
+        <h1 id="About">My Portfolio</h1>
+
+        <div class="main-frame">
+            <div class="border">
+                <div class="content">
+                    <div class="left-content">
+                        <h1 class="name">Nguyen Dinh Khoa</h1>
+                        <p class="sub">16 years old</p>
+                        <p class="sub">High School Student</p>
+                        <a href="projects.html">Projects</a>
+                    </div>
+                    <div class="right-content">
+                        <img src="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="Projects">My Projects</h2>
+
+        <div class="carousel-container">
+            <button class="carousel-button left-button" id="prevBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 44 44" fill="none">
+                    <path
+                        d="M22 14L14 22M14 22L22 30M14 22H30M42 22C42 33.0457 33.0457 42 22 42C10.9543 42 2 33.0457 2 22C2 10.9543 10.9543 2 22 2C33.0457 2 42 10.9543 42 22Z"
+                        stroke="#F5F5F5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+
+            <div class="projects-container">
+
+                <div class="project" data-index="0">
+                    <div class="project-image">
+                        <img src="https://i.pinimg.com/236x/f6/16/d0/f616d044c7937dde2e8ec2b4f3e6f79c.jpg"
+                            alt="Project 1">
+                    </div>
+                    <div class="project-content">
+                        <h3>Placeholder</h3>
+                        <p>A project made by Nguyen Dinh Khoa.</p>
+                    </div>
+                </div>
+
+                <div class="project" data-index="1">
+                    <div class="project-image">
+                        <img src="https://plus.unsplash.com/premium_photo-1661290256778-3b821d52c514?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvamVjdHxlbnwwfHwwfHx8MA%3D%3D"
+                            alt="Project 2">
+                    </div>
+                    <div class="project-content">
+                        <h3>Placeholder</h3>
+                        <p>A project made by Nguyen Dinh Khoa.</p>
+                    </div>
+                </div>
+
+                <div class="project" data-index="2">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvamVjdHxlbnwwfHwwfHx8MA%3D%3D"
+                            alt="Project 3">
+                    </div>
+                    <div class="project-content">
+                        <h3>Placeholder</h3>
+                        <p>A project made by Nguyen Dinh Khoa.</p>
+                    </div>
+                </div>
+
+                <div class="project" data-index="3">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvamVjdHxlbnwwfHwwfHx8MA%3D%3D"
+                            alt="Project 4">
+                    </div>
+                    <div class="project-content">
+                        <h3>Placeholder</h3>
+                        <p>A project made by Nguyen Dinh Khoa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-button right-button" id="nextBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 44 44" fill="none">
+                    <path
+                        d="M22 30L30 22M30 22L22 14M30 22H14M42 22C42 33.0457 33.0457 42 22 42C10.9543 42 2 33.0457 2 22C2 10.9543 10.9543 2 22 2C33.0457 2 42 10.9543 42 22Z"
+                        stroke="#F5F5F5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="carousel-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+        </div>
+
+        <h2 id="Contact">Contact Info</h2>
+
+        <div class="contact-frame">
+            <div class="contact-border">
+                <h2 class="contact-title">Contact Me</h2>
+                <!-- modify this form HTML and place wherever you want your form -->
+                <form action="https://formspree.io/f/movlvzpp" method="POST">
+                    <label>
+                        Your email:
+                        <input type="email" name="email">
+                    </label>
+                    <label>
+                        Your message:
+                        <textarea name="message"></textarea>
+                    </label>
+                    <!-- your other form fields go here -->
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+
 </html>
