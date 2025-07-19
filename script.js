@@ -69,4 +69,29 @@ document.addEventListener("keydown", (e) => {
 	}
 });
 
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", (e) => {
+	touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", (e) => {
+	touchEndX = e.changedTouches[0].screenX;
+	handleSwipe();
+});
+
+function handleSwipe() {
+	const swipeThreshold = 50;
+	const diff = touchStartX - touchEndX;
+
+	if (Math.abs(diff) > swipeThreshold) {
+		if (diff > 0) {
+			updateCarousel(currentIndex + 1);
+		} else {
+			updateCarousel(currentIndex - 1);
+		}
+	}
+}
+
 updateCarousel(0);
