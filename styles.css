@@ -244,6 +244,68 @@ a.active {
     opacity: 0.7;
 }
 
+
+.project[data-index="0"].center {
+    background: linear-gradient(135deg, #2a2a3e 0%, #26314e 50%, #1f4470 100%);
+    border: 2px solid rgba(31, 68, 112, 0.6);
+    box-shadow: 0px 25px 80px rgba(31, 68, 112, 0.3), 0px 12px 40px rgba(0, 0, 0, 0.2), 0px 0px 80px rgba(31, 68, 112, 0.2);
+}
+
+.project[data-index="0"].center .project-content h3 {
+    color: #e6e6fa;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.project[data-index="0"].center .project-content p {
+    color: #b0c4de;
+}
+
+.project[data-index="1"].center {
+    background: linear-gradient(135deg, #2e4a3e 0%, #3e5a4e 50%, #4e7a5e 100%);
+    border: 2px solid rgba(78, 122, 94, 0.6);
+    box-shadow: 0px 25px 80px rgba(78, 122, 94, 0.3), 0px 12px 40px rgba(0, 0, 0, 0.2), 0px 0px 80px rgba(62, 90, 78, 0.2);
+}
+
+.project[data-index="1"].center .project-content h3 {
+    color: #c8f7c5;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.project[data-index="1"].center .project-content p {
+    color: #a8d5a8;
+}
+
+.project[data-index="2"].center {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%);
+    border: 2px solid rgba(64, 64, 64, 0.6);
+    box-shadow: 0px 25px 80px rgba(64, 64, 64, 0.3), 0px 12px 40px rgba(0, 0, 0, 0.2), 0px 0px 80px rgba(45, 45, 45, 0.2);
+}
+
+.project[data-index="2"].center .project-content h3 {
+    color: #f0f0f0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.project[data-index="2"].center .project-content p {
+    color: #cccccc;
+}
+
+.project[data-index="3"].center {
+    background: linear-gradient(135deg, #7dd5fd 0%, #95d4ff 50%, #b6e2fb 100%);
+    border: 2px solid rgba(125, 211, 252, 0.6);
+    box-shadow: 0px 25px 80px rgba(111, 209, 255, 0.3), 0px 12px 40px rgba(40, 41, 42, 0.2), 0px 0px 80px rgba(207, 233, 250, 0.2);
+}
+
+.project[data-index="3"].center .project-content h3 {
+    color: #0d7fb7;
+    text-shadow: 0 1px 3px rgba(216, 243, 255, 0.8);
+}
+
+.project[data-index="3"].center .project-content p {
+    color: #0ea5e9;
+}
+
+
 .contact-frame {
     width: 100%;
     max-width: 1040px;
@@ -374,6 +436,18 @@ a.active {
     max-width: 1040px;
     margin: 0 auto;
     padding: 0 32px;
+}
+
+.projects-section h2 {
+    font-size: 48px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1e293b;
+    background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .carousel-container {
@@ -732,6 +806,216 @@ a.active {
     width: 16px;
     height: 16px;
 }
+
+/* Modal Theme Styles */
+
+.modal-theme-space {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border: 1px solid rgba(31, 68, 112, 0.4);
+}
+
+.modal-header-space {
+    background: linear-gradient(135deg, #2a2a3e 0%, #26314e 50%, #1f4470 100%);
+    border-bottom: 1px solid rgba(31, 68, 112, 0.3);
+}
+
+.modal-header-space .modal-title {
+    color: #e6e6fa;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.modal-body-space {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.modal-body-space .modal-description {
+    color: #b0c4de;
+}
+
+.modal-theme-space .close-button {
+    background: rgba(230, 230, 250, 0.9);
+    color: #1f4470;
+    border: 1px solid rgba(31, 68, 112, 0.3);
+}
+
+.modal-theme-space .close-button:hover {
+    background: #e6e6fa;
+    color: #16213e;
+    box-shadow: 0 4px 15px rgba(31, 68, 112, 0.3);
+}
+
+.modal-theme-space .modal-project-link,
+.modal-theme-space .modal-github-link {
+    background: linear-gradient(135deg, #2a2a3e 0%, #1f4470 100%);
+    color: #e6e6fa;
+    border: 2px solid rgba(31, 68, 112, 0.6);
+    box-shadow: 0 4px 15px rgba(31, 68, 112, 0.4);
+}
+
+.modal-theme-space .modal-project-link:hover,
+.modal-theme-space .modal-github-link:hover {
+    background: linear-gradient(135deg, #1f4470 0%, #16213e 100%);
+    border-color: #2a2a3e;
+    box-shadow: 0 8px 25px rgba(31, 68, 112, 0.6);
+    transform: translateY(-2px);
+}
+
+
+.modal-theme-nature {
+    background: linear-gradient(135deg, #2e4a3e 0%, #3e5a4e 50%, #4e7a5e 100%);
+    border: 1px solid rgba(78, 122, 94, 0.4);
+}
+
+.modal-header-nature {
+    background: linear-gradient(135deg, #2e4a3e 0%, #3e5a4e 50%, #4e7a5e 100%);
+    border-bottom: 1px solid rgba(78, 122, 94, 0.3);
+}
+
+.modal-header-nature .modal-title {
+    color: #c8f7c5;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.modal-body-nature {
+    background: linear-gradient(135deg, #2e4a3e 0%, #3e5a4e 100%);
+}
+
+.modal-body-nature .modal-description {
+    color: #a8d5a8;
+}
+
+.modal-theme-nature .close-button {
+    background: rgba(200, 247, 197, 0.9);
+    color: #2e4a3e;
+    border: 1px solid rgba(78, 122, 94, 0.3);
+}
+
+.modal-theme-nature .close-button:hover {
+    background: #c8f7c5;
+    color: #2e4a3e;
+    box-shadow: 0 4px 15px rgba(78, 122, 94, 0.3);
+}
+
+.modal-theme-nature .modal-project-link,
+.modal-theme-nature .modal-github-link {
+    background: linear-gradient(135deg, #2e4a3e 0%, #4e7a5e 100%);
+    color: #c8f7c5;
+    border: 2px solid rgba(78, 122, 94, 0.6);
+    box-shadow: 0 4px 15px rgba(78, 122, 94, 0.4);
+}
+
+.modal-theme-nature .modal-project-link:hover,
+.modal-theme-nature .modal-github-link:hover {
+    background: linear-gradient(135deg, #4e7a5e 0%, #3e5a4e 100%);
+    border-color: #2e4a3e;
+    box-shadow: 0 8px 25px rgba(78, 122, 94, 0.6);
+    transform: translateY(-2px);
+}
+
+
+.modal-theme-dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%);
+    border: 1px solid rgba(64, 64, 64, 0.4);
+}
+
+.modal-header-dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%);
+    border-bottom: 1px solid rgba(64, 64, 64, 0.3);
+}
+
+.modal-header-dark .modal-title {
+    color: #f0f0f0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.modal-body-dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.modal-body-dark .modal-description {
+    color: #cccccc;
+}
+
+.modal-theme-dark .close-button {
+    background: rgba(240, 240, 240, 0.9);
+    color: #1a1a1a;
+    border: 1px solid rgba(64, 64, 64, 0.3);
+}
+
+.modal-theme-dark .close-button:hover {
+    background: #f0f0f0;
+    color: #1a1a1a;
+    box-shadow: 0 4px 15px rgba(64, 64, 64, 0.3);
+}
+
+.modal-theme-dark .modal-project-link,
+.modal-theme-dark .modal-github-link {
+    background: linear-gradient(135deg, #404040 0%, #2d2d2d 100%);
+    color: #f0f0f0;
+    border: 2px solid rgba(64, 64, 64, 0.6);
+    box-shadow: 0 4px 15px rgba(26, 26, 26, 0.4);
+}
+
+.modal-theme-dark .modal-project-link:hover,
+.modal-theme-dark .modal-github-link:hover {
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    border-color: #404040;
+    box-shadow: 0 8px 25px rgba(26, 26, 26, 0.6);
+    transform: translateY(-2px);
+}
+
+
+.modal-theme-icy {
+    background: linear-gradient(135deg, #7dd5fd 0%, #95d4ff 50%, #b6e2fb 100%);
+    border: 1px solid rgba(125, 211, 252, 0.4);
+}
+
+.modal-header-icy {
+    background: linear-gradient(135deg, #7dd5fd 0%, #95d4ff 50%, #b6e2fb 100%);
+    border-bottom: 1px solid rgba(125, 211, 252, 0.3);
+}
+
+.modal-header-icy .modal-title {
+    color: #0d7fb7;
+    text-shadow: 0 1px 3px rgba(216, 243, 255, 0.8);
+}
+
+.modal-body-icy {
+    background: linear-gradient(135deg, #7dd5fd 0%, #95d4ff 100%);
+}
+
+.modal-body-icy .modal-description {
+    color: #0ea5e9;
+}
+
+.modal-theme-icy .close-button {
+    background: rgba(13, 127, 183, 0.1);
+    color: #0d7fb7;
+    border: 1px solid rgba(125, 211, 252, 0.3);
+}
+
+.modal-theme-icy .close-button:hover {
+    background: rgba(13, 127, 183, 0.2);
+    color: #0d7fb7;
+    box-shadow: 0 4px 15px rgba(125, 211, 252, 0.3);
+}
+
+.modal-theme-icy .modal-project-link,
+.modal-theme-icy .modal-github-link {
+    background: linear-gradient(135deg, #95d4ff 0%, #b6e2fb 100%);
+    color: #0d7fb7;
+    border: 2px solid rgba(125, 211, 252, 0.6);
+    box-shadow: 0 4px 15px rgba(125, 211, 252, 0.3);
+}
+
+.modal-theme-icy .modal-project-link:hover,
+.modal-theme-icy .modal-github-link:hover {
+    background: linear-gradient(135deg, #b6e2fb 0%, #7dd5fd 100%);
+    border-color: #0d7fb7;
+    box-shadow: 0 8px 25px rgba(125, 211, 252, 0.5);
+    transform: translateY(-2px);
+}
+
 
 /* Section Headings Animation */
 h1,

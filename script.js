@@ -58,30 +58,30 @@ dots.forEach((dot, index) => {
 // Sample project data for better modal content
 const projectData = [
 	{
-		title: "E-Commerce Platform",
-		description: "A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, payment integration with Stripe, and admin dashboard for inventory management. The platform supports responsive design and includes advanced search and filtering capabilities.",
-		imageUrl: "https://plus.unsplash.com/premium_photo-1748218891210-3610f2e11a12?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		title: "Honkai: Star Rail Soundboard",
+		description: "A fully customizable web-based soundboard designed to play audio files, mainly voicelines from the game Honkai: Star Rail.",
+		imageUrl: "asset/hsrsoundboard.png",
 		projectUrl: "https://example.com/ecommerce-platform",
 		githubUrl: "https://github.com/example/ecommerce-platform"
 	},
 	{
-		title: "Task Management App",
-		description: "A collaborative task management application with real-time updates using Socket.io. Built with Vue.js frontend and Express.js backend. Features include drag-and-drop task organization, team collaboration, file attachments, progress tracking, and mobile-responsive design.",
-		imageUrl: "https://plus.unsplash.com/premium_photo-1661290256778-3b821d52c514?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvamVjdHxlbnwwfHwwfHx8MA%3D%3D",
+		title: "Chrome Extension",
+		description: "Placeholder",
+		imageUrl: "asset/chromeextension.png",
 		projectUrl: "https://example.com/task-manager",
 		githubUrl: "https://github.com/example/task-manager"
 	},
 	{
-		title: "Weather Dashboard",
-		description: "A beautiful weather dashboard that displays current weather conditions and forecasts using OpenWeatherMap API. Built with vanilla JavaScript and CSS Grid. Features include location-based weather, 7-day forecast, weather alerts, and customizable themes based on weather conditions.",
-		imageUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvamVjdHxlbnwwfHwwfHx8MA%3D%3D",
+		title: "Personality Quiz",
+		description: "A very simple JS response test, masked as a personality quiz for the game Honkai: Star Rail.",
+		imageUrl: "asset/personalityquiz.png",
 		projectUrl: "https://example.com/weather-dashboard",
 		githubUrl: "https://github.com/example/weather-dashboard"
 	},
 	{
-		title: "Portfolio Website",
-		description: "A modern, responsive portfolio website showcasing my projects and skills. Built with HTML5, CSS3, and JavaScript. Features include smooth animations, interactive project carousel, contact form with validation, and SEO optimization. The design focuses on clean aesthetics and excellent user experience.",
-		imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvamVjdHxlbnwwfHwwfHx8MA%3D%3D",
+		title: "Personal Portfolio Website",
+		description: "Personal Portfolio made by myself as a product for Algorithmics frontend web design course, used to showcase the techniques and skils I have learnt throughout the course and display my projects.",
+		imageUrl: "asset/portfolio.png",
 		projectUrl: "https://example.com/portfolio",
 		githubUrl: "https://github.com/example/portfolio"
 	}
@@ -187,13 +187,54 @@ const modalImage = modal.querySelector('.modal-image');
 const modalProjectLink = modal.querySelector('.modal-project-link');
 const modalGitHubLink = modal.querySelector('.modal-github-link');
 
+
+// Function to apply theme-specific styling to modals
+function applyModalTheme(projectIndex) {
+	const modalContent = modal.querySelector('.modal-content');
+	const modalHeader = modal.querySelector('.modal-header');
+	const modalBody = modal.querySelector('.modal-body');
+	
+	// Reset previous theme classes
+	modalContent.className = 'modal-content';
+	modalHeader.className = 'modal-header';
+	modalBody.className = 'modal-body';
+	
+	switch(projectIndex) {
+		case 0:
+			modalContent.classList.add('modal-theme-space');
+			modalHeader.classList.add('modal-header-space');
+			modalBody.classList.add('modal-body-space');
+			break;
+		case 1:
+			modalContent.classList.add('modal-theme-nature');
+			modalHeader.classList.add('modal-header-nature');
+			modalBody.classList.add('modal-body-nature');
+			break;
+		case 2:
+			modalContent.classList.add('modal-theme-dark');
+			modalHeader.classList.add('modal-header-dark');
+			modalBody.classList.add('modal-body-dark');
+			break;
+		case 3:
+			modalContent.classList.add('modal-theme-icy');
+			modalHeader.classList.add('modal-header-icy');
+			modalBody.classList.add('modal-body-icy');
+			break;
+		default:
+			break;
+	}
+}
+
+
 // Function to open modal with smooth animation
-function openModal(title, description, imageUrl, projectUrl, githubUrl) {
+function openModal(title, description, imageUrl, projectUrl, githubUrl, projectIndex) {
 	modalTitle.textContent = title;
 	modalDescription.textContent = description;
 	modalImage.src = imageUrl;
 	modalProjectLink.href = projectUrl;
 	modalGitHubLink.href = githubUrl;
+	
+	applyModalTheme(projectIndex);
 	
 	// Show modal with animation
 	modal.style.display = 'flex';
@@ -216,6 +257,26 @@ function closeModal() {
 		document.body.style.overflow = '';
 	}, 300);
 }
+
+// UPDATED PROJECT CLICK HANDLER TO PASS PROJECT INDEX
+projects.forEach((project, index) => {
+	project.addEventListener('click', () => {
+		if (project.classList.contains('center')) {
+			// Use sample project data
+			const data = projectData[index] || {
+				title: project.querySelector('h3')?.textContent || 'No Title',
+				description: project.querySelector('p')?.textContent || 'No Description',
+				imageUrl: project.querySelector('img')?.src || '',
+				projectUrl: `https://example.com/project${index + 1}`,
+				githubUrl: `https://github.com/example/project${index + 1}`
+			};
+			// Pass the project index to openModal - THIS WAS THE KEY FIX
+			openModal(data.title, data.description, data.imageUrl, data.projectUrl, data.githubUrl, index);
+		} else {
+			updateCarousel(index);
+		}
+	});
+});
 
 // Close modal on clicking the close button or outside the modal
 closeButton.addEventListener('click', closeModal);
