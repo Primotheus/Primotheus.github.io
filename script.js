@@ -83,7 +83,7 @@ const projectData = [
 		description: "A modern, responsive portfolio website featuring advanced CSS animations, parallax effects, and interactive project carousels. Built from scratch to showcase web development skills and creative design capabilities.",
 		imageUrl: "asset/portfolio.png",
 		projectUrl: "https://primotheus.github.io/index.html",
-		githubUrl: "https://github.com/Primotheus/PortfolioProject"
+		githubUrl: "https://github.com/Primotheus/Primotheus.github.io"
 	}
 ];
 
