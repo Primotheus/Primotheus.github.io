@@ -61,29 +61,29 @@ const projectData = [
 		title: "Honkai: Star Rail Soundboard",
 		description: "A fully customizable web-based soundboard designed to play audio files, mainly voicelines from the game Honkai: Star Rail.",
 		imageUrl: "asset/hsrsoundboard.png",
-		projectUrl: "https://example.com/ecommerce-platform",
-		githubUrl: "https://github.com/example/ecommerce-platform"
+		projectUrl: "https://hsr-soundboard.vercel.app/",
+		githubUrl: "https://github.com/Primotheus/HSRSoundboard"
 	},
 	{
 		title: "Chrome Extension",
-		description: "Placeholder",
+		description: "A Pokemon-themed productivity Chrome extension that gamifies your study routine. Complete tasks to raise and evolve Pokemon companions, making homework and assignments more engaging and rewarding.",
 		imageUrl: "asset/chromeextension.png",
-		projectUrl: "https://example.com/task-manager",
-		githubUrl: "https://github.com/example/task-manager"
+		projectUrl: "https://github.com/Primotheus/Chrome-Extension",
+		githubUrl: "https://github.com/Primotheus/Chrome-Extension"
 	},
 	{
 		title: "Personality Quiz",
-		description: "A very simple JS response test, masked as a personality quiz for the game Honkai: Star Rail.",
-		imageUrl: "asset/personalityquiz.png",
-		projectUrl: "https://example.com/weather-dashboard",
-		githubUrl: "https://github.com/example/weather-dashboard"
+		description: "Coming Soon - An exciting new project currently in development. Stay tuned for more details!",
+		imageUrl: "asset/placeholder.png",
+		projectUrl: "",
+		githubUrl: ""
 	},
 	{
 		title: "Personal Portfolio Website",
-		description: "Personal Portfolio made by myself as a product for Algorithmics frontend web design course, used to showcase the techniques and skils I have learnt throughout the course and display my projects.",
+		description: "A modern, responsive portfolio website featuring advanced CSS animations, parallax effects, and interactive project carousels. Built from scratch to showcase web development skills and creative design capabilities.",
 		imageUrl: "asset/portfolio.png",
-		projectUrl: "https://example.com/portfolio",
-		githubUrl: "https://github.com/example/portfolio"
+		projectUrl: "https://primotheus.github.io/index.html",
+		githubUrl: "https://github.com/Primotheus/PortfolioProject"
 	}
 ];
 
@@ -258,11 +258,9 @@ function closeModal() {
 	}, 300);
 }
 
-// UPDATED PROJECT CLICK HANDLER TO PASS PROJECT INDEX
 projects.forEach((project, index) => {
 	project.addEventListener('click', () => {
 		if (project.classList.contains('center')) {
-			// Use sample project data
 			const data = projectData[index] || {
 				title: project.querySelector('h3')?.textContent || 'No Title',
 				description: project.querySelector('p')?.textContent || 'No Description',
@@ -270,7 +268,6 @@ projects.forEach((project, index) => {
 				projectUrl: `https://example.com/project${index + 1}`,
 				githubUrl: `https://github.com/example/project${index + 1}`
 			};
-			// Pass the project index to openModal - THIS WAS THE KEY FIX
 			openModal(data.title, data.description, data.imageUrl, data.projectUrl, data.githubUrl, index);
 		} else {
 			updateCarousel(index);
@@ -331,7 +328,7 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         const targetElement = document.querySelector(targetId);
         
         if (targetElement) {
-            const navHeight = nav.offsetHeight + 40; // Account for sticky nav height
+            const navHeight = nav.offsetHeight + 40;
             const targetPosition = targetElement.offsetTop - navHeight;
             
             window.scrollTo({
@@ -346,6 +343,7 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
 window.addEventListener('scroll', () => {
     handleScrollAnimations();
     handleStickyNav();
+    handleParallax();
 });
 
 // Trigger initial animations
@@ -353,3 +351,37 @@ window.addEventListener('load', () => {
     handleScrollAnimations();
     handleStickyNav();
 });
+
+function handleParallax() {
+    const scrolled = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    
+    // Get parallax layers
+    const layer1 = document.querySelector('.bg-layer-1');
+    const layer2 = document.querySelector('.bg-layer-2');
+    const layer3 = document.querySelector('.bg-layer-3');
+    
+    // Calculate parallax offset with limits to prevent shapes from going too far
+    const maxOffset = windowHeight * 0.3; // Limit movement to 30% of viewport height
+    
+    // Apply different speeds with controlled limits
+    if (layer1) {
+        const offset1 = Math.min(scrolled * -0.15, maxOffset); // Slower, more subtle
+        layer1.style.transform = `translateY(${offset1}px)`;
+    }
+    if (layer2) {
+        const offset2 = Math.min(scrolled * -0.25, maxOffset); // Medium speed
+        layer2.style.transform = `translateY(${offset2}px)`;
+    }
+    if (layer3) {
+        const offset3 = Math.min(scrolled * -0.35, maxOffset); // Fastest layer
+        layer3.style.transform = `translateY(${offset3}px)`;
+    }
+    
+    // Also apply to profile graphic but keep it gentle
+    const profileGraphic = document.querySelector('.profile-graphic');
+    if (profileGraphic) {
+        const profileOffset = Math.min(scrolled * 0.05, maxOffset * 0.3); // Very subtle
+        profileGraphic.style.transform = `translateY(${profileOffset}px)`;
+    }
+}
